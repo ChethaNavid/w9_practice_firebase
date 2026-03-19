@@ -24,8 +24,13 @@ class SongTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(15)
         ),
         child: ListTile(
+          leading: CircleAvatar(
+            radius: 50,
+            backgroundImage: NetworkImage(song.imageUrl),
+          ),
           onTap: onTap,
           title: Text(song.title),
+          subtitle: Text(song.formatDuration(song.duration)),
           trailing: Text(
             isPlaying ? "Playing" : "",
             style: TextStyle(color: Colors.amber),
