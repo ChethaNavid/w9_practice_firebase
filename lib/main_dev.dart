@@ -1,4 +1,6 @@
 import 'package:provider/provider.dart';
+import 'package:w9_practice_firebase/data/repositories/artists/artist_repository.dart';
+import 'package:w9_practice_firebase/data/repositories/artists/artist_repository_firebase.dart';
  
 import 'data/repositories/songs/song_repository_firebase.dart';
 import 'main_common.dart';
@@ -23,6 +25,9 @@ List<InheritedProvider> get devProviders {
     ChangeNotifierProvider<AppSettingsState>(
       create: (_) => AppSettingsState(repository: appSettingsRepository),
     ),
+
+    // 4 - Inject the artist repository
+    Provider<ArtistRepository>(create: (context) => ArtistRepositoryFirebase(),) 
   ];
 }
 
