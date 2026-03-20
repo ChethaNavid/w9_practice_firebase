@@ -33,7 +33,7 @@ class ArtistViewModel extends ChangeNotifier {
       // 2- Fetch is successfull
       List<Artist> songs = await artistRepository.fetchArtists();
 
-      if (!_isDisposed) return;
+      if (_isDisposed) return;
 
       artistsValue = AsyncValue.success(songs);
     } catch (e) {
